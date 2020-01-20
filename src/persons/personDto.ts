@@ -1,7 +1,7 @@
 import { IsString, Matches } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class PersonDTO {
+export class PersonDto {
 
     @IsString()
     @Matches(/^[A-Za-z]+$/)
