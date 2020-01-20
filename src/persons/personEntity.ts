@@ -17,8 +17,7 @@ export class PersonEntity {
 
     @CreateDateColumn()
     crationDate: Date;
-    
+
     @UpdateDateColumn()
     updateDate: Date;
-
 }
