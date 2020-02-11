@@ -1,8 +1,9 @@
-import { Delete, Get, Injectable, NotFoundException, Put } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PersonEntity } from './personEntity';
 import { Repository } from 'typeorm';
 import { PersonDto } from './personDto';
+import { SpecialCharactersException } from '../exeptions/special.characters.exeption';
 
 @Injectable()
 export class PersonsService {
@@ -14,6 +15,10 @@ export class PersonsService {
     }
 
     createPerson(personDTO: PersonDto) {
+
+        if (personDTO.fullname === 'Abdo') {
+            throw new SpecialCharactersException();
+        }
         return this.personRepository.save(personDTO);
     }
 
